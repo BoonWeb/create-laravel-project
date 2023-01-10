@@ -1,0 +1,50 @@
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+name: Release
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: composer
+        uses: docker://composer
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMPOSER_MIRROR_PATH_REPOS: 1
+        with:
+          args: install --no-interaction --prefer-dist --optimize-autoloader
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+          extensions: none, iconv, json, phar, tokenizer
+          coverage: none
+          tools: none
+      - name: Build PHAR
+        run: php create-laravel-project app:build --build-version ${{ github.ref_name }}
+      - name: Import GPG key
+        id: import_gpg
+        uses: crazy-max/ghaction-import-gpg@v5
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+          git_tag_gpgsign: true
+          fingerprint: "575C2FA44DC3BCFDCA6C8412AA2ABC775F894199"
+      - name: Sign PHAR file
+        run: |
+          export GPG_TTY="$(tty)"
+          gpg --command-fd 0 --pinentry-mode loopback -u info@boonweb.de --batch --detach-sign --output builds/create-laravel-project.asc builds/create-laravel-project
+      - name: release phar
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            builds/create-laravel-project.asc
+            builds/create-laravel-project
+            LICENSE
+            CHANGELOG.md
