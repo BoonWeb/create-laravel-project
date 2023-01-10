@@ -1,6 +1,6 @@
 ![GitHub Sponsor](https://img.shields.io/github/sponsors/boonweb?label=Sponsor&logo=GitHub)
 
-[<img alt="Start a fresh Laravel project in a few minutes with this install wizard." src="/Users/renepardon/Projects/BoonWeb/create-laravel-project/assets/create-laravel-project-social-card.webp" title="Create Laravel Project"/>](https://boonweb.github.io/create-laravel-project-docs/)
+![Starting a new Laravel project was never easier](./assets/create-laravel-project-social-card.webp)
 
 # Create laravel project
 
