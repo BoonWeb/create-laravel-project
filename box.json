@@ -1,0 +1,25 @@
+{
+    "chmod": "0755",
+    "directories": [
+        "app",
+        "bootstrap",
+        "config",
+        "resources",
+        "vendor"
+    ],
+    "files": [
+        "composer.json"
+    ],
+    "exclude-composer-files": false,
+    "compression": "GZ",
+    "compactors": [
+        "KevinGH\\Box\\Compactor\\Php",
+        "KevinGH\\Box\\Compactor\\Json"
+    ],
+    "banner": [
+        "(c) BoonWeb GmbH <info@boonweb.de>",
+        "",
+        "This source file is subject to the GPL-3.0-or-later license that is bundled",
+        "with this source code in the file LICENSE."
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "name": "boonweb/create-laravel-project",
+    "description": "Start a fresh laravel project in a few minutes with this laravel install wizard.",
+    "keywords": ["framework", "laravel", "console", "cli", "wizard"],
+    "homepage": "https://boonweb.de",
+    "type": "project",
+    "license": "GPL-3.0-or-later",
+    "support": {
+        "issues": "https://github.com/BoonWeb/create-laravel-project/issues",
+        "source": "https://github.com/BoonWeb/create-laravel-project",
+        "chat": "https://github.com/BoonWeb/create-laravel-project/discussions"
+    },
+    "authors": [
+        {
+            "name": "Christoph René Pardon",
+            "email": "info@boonweb.de"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/view": "^9.0",
+        "laravel-zero/framework": "^9.2",
+        "laravel-zero/phar-updater": "^1.2",
+        "nunomaduro/laravel-console-menu": "^3.2",
+        "nunomaduro/laravel-desktop-notifier": "^2.6",
+        "nunomaduro/termwind": "^1.14"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.2",
+        "mockery/mockery": "^1.4.4",
+        "pestphp/pest": "^1.21.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "bin": ["create-laravel-project"]
+}
