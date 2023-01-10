@@ -1,5 +1,3 @@
-![GitHub Sponsor](https://img.shields.io/github/sponsors/boonweb?label=Sponsor&logo=GitHub)
-
 ![Starting a new Laravel project was never easier](./assets/create-laravel-project-social-card.webp)
 
 # Create laravel project
@@ -18,11 +16,11 @@ Documentation is available at [Github Pages](https://boonweb.github.io/create-la
 
 ## Changelog
 
+The [CHANGELOG.md](CHANGELOG.md) file contains all versions and links their changes.
+
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## Credits
 
