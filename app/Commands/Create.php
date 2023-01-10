@@ -90,9 +90,9 @@ class Create extends Command
             // TODO "custom" preset can be created with laravel/ui but we mostly want to start with an existing
         }
 
-        $this->withModules = $this->confirm('[configure] Do you want "Modules" support?', true);
-        $this->withPermissions = $this->confirm('[configure] Do you need user permissions/roles feature?', true);
-        $this->withImpersonate = $this->confirm('[configure] Do you need user impersonation feature?', true);
+        $this->withModules = $this->confirm('[dependencies] Do you want "Modules" support?', true);
+        $this->withPermissions = $this->confirm('[dependencies] Do you need user permissions/roles feature?', true);
+        $this->withImpersonate = $this->confirm('[dependencies] Do you need user impersonation feature?', true);
 
         $this->packageManager = $this->choice(
             'Which package manager to use?',
@@ -239,6 +239,7 @@ class Create extends Command
             $this->task('Setup Modules', function () {
                 $this->shell('composer require nwidart/laravel-modules joshbrw/laravel-module-installer');
                 $this->shell('php artisan vendor:publish --provider="Nwidart\Modules\LaravelModulesServiceProvider"');
+                File::makeDirectory('Modules');
             });
         }
 
