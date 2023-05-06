@@ -48,8 +48,8 @@ class Create extends Command
         $this->appName = $this->ask('[laravel] What should be the name of your new application?', 'new-app');
         $this->laravelVersion = $this->choice(
             '[laravel] Which version should be installed?',
-            ['^8.0', '^9.0'],
-            '^9.0'
+            ['^9.0', '^10.0',],
+            '^10.0'
         );
 
         render(view('starter-kit-information'));
